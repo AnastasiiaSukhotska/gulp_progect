@@ -1,17 +1,16 @@
-
+import {Contact} from '../models/model_contact';
 export class ContactServices{
-	constructor(loginForm){
-		this.loginForm=loginForm;
+	constructor(userService){
+		this.userService=userService;
 	}
 	getAllContacts(){
-		let token=loginForm.token;
-		console.log(token);
+		
 		return fetch(ContactServices.BASE_URL+'contacts', {
 			method: 'GET',
 			headers:{
 				'Content-Type':'application/json',
 				'Accept':'application/json',
-				'Authorization':'Bearer '+token
+				'Authorization':'Bearer '+this.userService.token
 		}})
 			.then(r=>r.json())
 			.then(r=>r.contacts)
@@ -24,7 +23,7 @@ export class ContactServices{
 			headers:{
 				'Content-Type':'application/json',
 				'Accept':'application/json',
-				'Authorization':'Bearer '+token.token
+				'Authorization':'Bearer '+this.userService.token
 		},
 
 		body: JSON.stringify({
@@ -42,12 +41,12 @@ export class ContactServices{
 
 
 	addContact(contact){
-		return fetch(UserServices.BASE_URL+'contacts/add',{
+		return fetch(ContactServices.BASE_URL+'contacts/add',{
 			method: 'POST',
 			headers:{
 				'Content-Type':'application/json',
 				'Accept':'application/json',
-				'Authorization':'Bearer '+token.token
+				'Authorization':'Bearer '+this.userService.token
 			},
 			body: JSON.stringify({
 				value: contact.value,

@@ -1,3 +1,4 @@
+import {User} from '../models/model_user';
 export class RegisterForm{
 	constructor(selector, userService){
 		this.selector=selector;

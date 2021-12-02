@@ -4,7 +4,6 @@ export class LoginForm{
 	constructor(selector, userService){
 		this.selector=selector;
 		this.userService=userService;
-		
 		this.onregister=()=>{};
 		document.addEventListener('DOMContentLoaded', ()=>{
 			this.init();
@@ -35,10 +34,9 @@ export class LoginForm{
 		this.userService.login(user).then(r=>{
 			if(r.status=='error') this.loginError(r.error);
 			else if(r.token!==null){
-				let token=r.token;
-				console.log(token);
+				this.userService.token=r.token;
 				this.successLogin();
-				return token;
+				return this.userService.token;
 		}})
 		
 	}

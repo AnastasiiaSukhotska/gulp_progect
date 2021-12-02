@@ -1,5 +1,8 @@
-
+import {User} from '../models/model_user';
 export class UserServices{
+	constructor(token){
+		this.token=null;
+	}
 
 	getAll(){
 		return fetch(UserServices.BASE_URL+'users')

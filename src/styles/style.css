@@ -21,9 +21,7 @@
 		.row__col{
 			flex-grow: 1;
 			border: 1px solid #916935;
-			box-shadow: 1px 1px 2px #916935;;
-
-		
+			box-shadow: 1px 1px 2px #916935;
 
 		}
 		
@@ -104,7 +102,7 @@
 			padding: 10px;
 			border-radius: 20px;
 			height: 20px;
-			background-color: #FFF8EE;
+			background-color: white;
 		}
 
 		.form-header{

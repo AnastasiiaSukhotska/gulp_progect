@@ -8,7 +8,7 @@ import {Contact} from './models/model_contact';
 import {UserServices} from './services/user_services';
 let userService=new UserServices();
 import {ContactServices} from './services/contacts_services';
-let contactService=new ContactServices();
+let contactService=new ContactServices(userService);
 import {RegisterForm} from './components/register_form';
 let registerForm = new RegisterForm('.register-form', userService);
 
